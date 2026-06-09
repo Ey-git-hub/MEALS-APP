@@ -8,7 +8,9 @@ class MealDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(meal.title)),
+      appBar: AppBar(title: Text(meal.title),actions: [
+        IconButton(onPressed:(){} ,icon: ,)
+      ],),
       body: SingleChildScrollView(
         child: Column(
           children: [
