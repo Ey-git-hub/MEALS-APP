@@ -44,6 +44,16 @@ class _TabsScreen extends State<TabsScreen> {
     });
   }
 
+  void _setScreen(String identifier) {
+    if (identifier == 'filters') {
+      Navigator.of(
+        context,
+      ).push(MaterialPageRoute(builder: (ctx) => const Text('Filters')));
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen(
@@ -59,7 +69,7 @@ class _TabsScreen extends State<TabsScreen> {
     }
     return Scaffold(
       appBar: AppBar(title: Text(activePageTitle)),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(onSelectScreen: _setScreen),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
